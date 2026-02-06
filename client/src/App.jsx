@@ -1,0 +1,21 @@
+import React, { useState, useEffect } from 'react'
+
+const App = () => {
+  const [message, setMessage]=useState("");
+  useEffect(()=>{
+    fetch("http://localhost:5000/")
+    .then(res=>res.text())
+    .then(data=>{
+      console.log(data);
+      setMessage(data);
+    })
+    .catch(err=>console.log(err));
+  }, []); 
+  return (
+    <div>
+      <h1>{message}</h1>
+    </div>
+  )
+}
+
+export default App
