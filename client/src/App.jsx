@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import Navbar from './components/Navbar';
+import { useLocation } from 'react-router-dom';
 
 const App = () => {
-  const [message, setMessage]=useState("");
-  useEffect(()=>{
-    fetch("http://localhost:5000/")
-    .then(res=>res.text())
-    .then(data=>{
-      console.log(data);
-      setMessage(data);
-    })
-    .catch(err=>console.log(err));
-  }, []); 
+  const isOwnerPath=useLocation().pathname.includes("owner");
+
+ 
   return (
     <div>
-      <h1>{message}</h1>
+      {!isOwnerPath && <Navbar />}
     </div>
   )
 }
