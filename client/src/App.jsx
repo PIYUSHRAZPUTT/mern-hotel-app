@@ -9,6 +9,11 @@ const App = () => {
   return (
     <div>
       {!isOwnerPath && <Navbar />}
+      <div className='min-h-[70vh]'>
+      <Routes>
+        <Route path='/' element ={<Home/>}/>
+      </Routes>
+      </div>
     </div>
   )
 }
